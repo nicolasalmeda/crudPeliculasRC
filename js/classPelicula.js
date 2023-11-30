@@ -1,5 +1,5 @@
 export default class Pelicula {
-  constructor(codigo, titulo, descripcion, imagen, genero) {
+  constructor(codigo = uuid4(), titulo, descripcion, imagen, genero) {
     this._codigo = codigo;
     this._titulo = titulo;
     this._descripcion = descripcion;
@@ -45,5 +45,15 @@ export default class Pelicula {
 
   set genero(nuevoGenero) {
     this._genero = nuevoGenero;
+  }
+
+  toJson(){
+    return {
+      codigo: this.codigo,
+      titulo: this.titulo,
+      descripcion: this.descripcion,
+      imagen: this.imagen,
+      genero: this.genero
+    }
   }
 }
